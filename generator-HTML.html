@@ -248,7 +248,7 @@ function generateAndDownload() {
                 imgIndex++;
                 
                 const agcTargetSlug = chosenImageQuery.replace(/\s+/g, '-').toLowerCase();
-                const agcTargetUrl = `${baseDomain}${agcTargetSlug}`;
+                const agcTargetUrl = `${baseDomain}detail.html?q=${agcTargetSlug}`;
                 const imgUrl = `https://tse1.mm.bing.net/th?q=${encodeURIComponent(chosenImageQuery)}&w=800&h=450&c=7&rs=1&p=0&dpr=1.5&pid=1.7`;
                 
                 const imgDiv = document.createElement('div');
@@ -394,7 +394,7 @@ function generateAndDownload() {
                     count++;
                     
                     const slug = relatedTerm.replace(/\\s+/g, '-').toLowerCase();
-                    const linkUrl = '${baseDomain}' + slug;
+                    const linkUrl = '${baseDomain}detail.html?q=' + slug;
                     
                     const queryImg = relatedTerm + " recipe food plate";
                     const imgUrl = 'https://tse1.mm.bing.net/th?q=' + encodeURIComponent(queryImg) + '&w=400&h=400&c=7&rs=1&p=0&dpr=1.5&pid=1.7';
