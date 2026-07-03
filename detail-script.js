@@ -103,9 +103,23 @@ document.addEventListener('DOMContentLoaded', function() {
             document.title = `${newTitle} | TastyBites`;
             if(detailTitle) detailTitle.textContent = newTitle;
 
-            const queryImage = term + " recipe food delicious";
-            const mainImageUrl = `https://tse1.mm.bing.net/th?q=${encodeURIComponent(queryImage)}&w=800&h=600&c=7&rs=1&p=0&dpr=1.5&pid=1.7`;
-            if(detailImageContainer) detailImageContainer.innerHTML = `<img src="${mainImageUrl}" alt="${newTitle}" style="width:100%; border-radius:8px;">`;
+            // Optimasi 3 Gambar Utama Sejajar
+            const q1 = term + " recipe food delicious";
+            const q2 = term + " cooking preparation fresh";
+            const q3 = term + " food plating presentation";
+
+            const img1 = `https://tse1.mm.bing.net/th?q=${encodeURIComponent(q1)}&w=400&h=300&c=7&rs=1&p=0&dpr=1.5&pid=1.7`;
+            const img2 = `https://tse1.mm.bing.net/th?q=${encodeURIComponent(q2)}&w=400&h=300&c=7&rs=1&p=1&dpr=1.5&pid=1.7`;
+            const img3 = `https://tse1.mm.bing.net/th?q=${encodeURIComponent(q3)}&w=400&h=300&c=7&rs=1&p=2&dpr=1.5&pid=1.7`;
+
+            if(detailImageContainer) {
+                detailImageContainer.innerHTML = `
+                <div class="main-image-gallery">
+                    <img src="${img1}" alt="${newTitle} - View 1">
+                    <img src="${img2}" alt="${newTitle} - View 2">
+                    <img src="${img3}" alt="${newTitle} - View 3">
+                </div>`;
+            }
 
             fetchDescriptionTemplate(term, newTitle);
         }
