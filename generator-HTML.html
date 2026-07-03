@@ -278,6 +278,30 @@ function generateAndDownload() {
         doc.body.appendChild(adCenter);
     }
     
+    // Injeksi 3 Gambar Utama Sejajar
+    const q1 = keywordInputVal + " recipe food delicious";
+    const q2 = keywordInputVal + " cooking preparation fresh";
+    const q3 = keywordInputVal + " food plating presentation";
+
+    const img1 = `https://tse1.mm.bing.net/th?q=${encodeURIComponent(q1)}&w=400&h=300&c=7&rs=1&p=0&dpr=1.5&pid=1.7`;
+    const img2 = `https://tse1.mm.bing.net/th?q=${encodeURIComponent(q2)}&w=400&h=300&c=7&rs=1&p=1&dpr=1.5&pid=1.7`;
+    const img3 = `https://tse1.mm.bing.net/th?q=${encodeURIComponent(q3)}&w=400&h=300&c=7&rs=1&p=2&dpr=1.5&pid=1.7`;
+
+    const mainGalleryDiv = document.createElement('div');
+    mainGalleryDiv.className = 'main-image-gallery';
+    mainGalleryDiv.innerHTML = `
+        <img src="${img1}" alt="${h1Title} - View 1">
+        <img src="${img2}" alt="${h1Title} - View 2">
+        <img src="${img3}" alt="${h1Title} - View 3">
+    `;
+
+    // Sisipkan gallery setelah adCenter
+    if (adCenter.nextSibling) {
+        doc.body.insertBefore(mainGalleryDiv, adCenter.nextSibling);
+    } else {
+        doc.body.appendChild(mainGalleryDiv);
+    }
+    
     // Siapkan variasi kueri gambar berdasarkan kata kunci masukan
     const relatedQueries = [
         `${keywordInputVal} easy recipe`,
